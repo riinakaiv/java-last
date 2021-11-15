@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank</title>
+</head>
+<body>
+
+Konto number: <input id="accountNr">
+<br>
+Kasutaja nimi <input id="name">
+
+Summa <input id="amount">
+
+<button id="createAccountButton">Loo konto</button>
+<br>
+<br>
+<button id="depositMoney">Lisa raha</button>
+<button id="withdrawMoney">Kanna raha ära</button>
+<br>
+<br>
+<button id="getBalanceButton">Konto jääk</button>
+<input disabled id="getBalanceResult">
+
+<br>
+<br>
+Kannan kontolt <input id="fromAccount">
+kontole <input id="toAccount">
+<button id="transferMoney">Tee ülekanne</button>
+
+<br>
+<br>
+
+
+<button id="transactionHistory">Konto väljavõte</button>
+
+
+<br>
+<br>
+<div id = "result"></div>
+<table id="resultTable">
+
+    <tr>
+        <th>created</th>
+        <th>amount</th>
+        <th>type</th>
+        <th>fromaccount</th>
+        <th>toaccount</th>
+    </tr>
+
+</table>
+
+<script>
+    let createAccountButton = document.getElementById("createAccountButton");
+    createAccountButton.onclick = function () {
+        let name = document.getElementById("name").value;
+        let accountNr = document.getElementById("accountNr").value;
+        let amount = document.getElementById("amount").value;
+        let url = "http://localhost:8080/bank/createAccount?name=" + name + "&accountNr=" + accountNr + "&amount=" + amount
+        fetch(url);
+
+    }
+
+    let getBalanceButton = document.getElementById("getBalanceButton");
+    getBalanceButton.onclick = function () {
+        let accountNr = document.getElementById("accountNr").value;
+        let url = "http://localhost:8080/bank/getBalance?accountNr=" + accountNr
+        fetch(url)
+            .then(response => response.text())
+            .then(function (response) {
+                document.getElementById("getBalanceResult").value = response;
+            })
+    }
+
+
+    let depositMoney = document.getElementById("depositMoney");
+    depositMoney.onclick = function () {
+        let accountNr = document.getElementById("accountNr").value;
+        let amount = document.getElementById("amount").value;
+        let url = "http://localhost:8080/bank/depositMoney?accountNr=" + accountNr + "&amount=" + amount
+        fetch(url);
+    }
+
+
+    let withdrawMoney = document.getElementById("withdrawMoney");
+    withdrawMoney.onclick = function () {
+        let accountNr = document.getElementById("accountNr").value;
+        let amount = document.getElementById("amount").value;
+        let url = "http://localhost:8080/bank/withdrawMoney?accountNr=" + accountNr + "&amount=" + amount
+        fetch(url);
+    }
+
+
+    let transferMoney = document.getElementById("transferMoney");
+    transferMoney.onclick = function () {
+        let fromAccount = document.getElementById("fromAccount").value;
+        let toAccount = document.getElementById("toAccount").value;
+        let amount = document.getElementById("amount").value;
+        let url = "http://localhost:8080/bank/transferMoney?fromAccount=" + fromAccount + "&toAccount=" + toAccount + "&amount=" + amount
+        fetch(url);
+    }
+
+    let transactionHistory = document.getElementById("transactionHistory");
+    transactionHistory.onclick = function () {
+        let accountNr = document.getElementById("accountNr").value;
+        let url = "http://localhost:8080/bank/transactionHistory?accountNr=" + accountNr
+        fetch(url)
+            .then(result => result.json())
+            .then(function (response) {
+                let resultTable = document.getElementById("resultTable");
+                for(let i = 0; i < response.length; i++) {
+                    let row = document.createElement("tr");
+                    resultTable.appendChild(row);
+                    let cell1 = document.createElement("td");
+                    row.appendChild(cell1);
+                    cell1.innerHTML = response[i].created;
+                    let cell2 = document.createElement("td");
+                    row.appendChild(cell2);
+                    cell2.innerHTML = response[i].amount;
+                    let cell3 = document.createElement("td");
+                    row.appendChild(cell3);
+                    cell3.innerHTML = response[i].type;
+                    let cell4 = document.createElement("td");
+                    row.appendChild(cell4);
+                    cell4.innerHTML = response[i].fromaccount;
+                    let cell5 = document.createElement("td");
+                    row.appendChild(cell5);
+                    cell5.innerHTML = response[i].toaccount;
+                }
+
+
+        });
+
+
+    }
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -9,15 +9,38 @@ public class Lesson2b {
     // TODO loe funktsiooni sisendiks on täisarvude massiiv
     // TODO tagasta massiiv mille elemendid on vastupidises järiekorras
     public static int[] reverseArray(int[] inputArray) {
-        return inputArray;
+        int[] newArray = new int[inputArray.length];
+        for (int i = 0; i < inputArray.length; i++) {
+            newArray[i] = inputArray[inputArray.length - i - 1];
+        }
+
+        return newArray;
     }
+
 
     // TODO tagasta massiiv mis sisaldab n esimest paaris arvu (n >= 0)
     // Näide:
     // Sisend 5
     // Väljund 2 4 6 8 10
     public static int[] evenNumbers(int n) {
-        return new int[0];
+        int[] result = new int[n];
+        for (int i = 1; i <= n; i++) {
+            System.out.println(i * 2);
+            result[i - 1] = i * 2;
+        }
+        //for (int i = 1; i <=n*2; i++ ) {
+        //   if ( i %2 == 0);
+        //  System.out.println(i);
+        //   result[i/2-1] = i;
+        // }
+        // for(int i =2;i <=n*2; i++ ) {
+        //  System.out.println(i);
+        //result[i/2-1]=i;
+        //}
+
+        return result;
+
+
         /*
         int[] array = new int[n];
         for(int i = 0; i < n; i++){
@@ -28,17 +51,33 @@ public class Lesson2b {
 
     // TODO, leia massiivi kõige väiksem element
     public static int min(int[] x) {
-        return 0;
+        int tmp = x[0];
+        for (int i = 1; i < x.length; i++) {
+            if (x[i] < tmp) {
+                tmp = x[i];
+            }
+        }
+        return tmp;
     }
 
     // TODO, leia massiivi kõige suurem element
     public static int max(int[] x) {
-        return 0;
+        int tmp = x[0];
+        for (int i = 1; i < x.length; i++) {
+            if (x[i] > tmp) {
+                tmp = x[i];
+            }
+        }
+        return tmp;
     }
 
     // TODO, leia massiivi kõigi elementide summa
     public static int sum(int[] x) {
-        return 0;
+        int tmp = 0;
+        for (int i = 0; i <x.length; i++) {
+            tmp = tmp + x[i];
+        }
+        return tmp;
     }
 
     // TODO trüki välja korrutustabel mis on x ühikut lai ja y ühikut kõrge
@@ -63,7 +102,10 @@ public class Lesson2b {
     // 0, 1, 1, 2, 3, 5, 8, 13, 21
     // Tagasta fibonacci jada n element. Võid eeldada, et n >= 0
     public static int fibonacci(int n) {
-        return 0;
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
     // TODO

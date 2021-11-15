@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Lesson2 {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(decreasingArray(9)));
+        System.out.println(Arrays.toString(generateArray(5)));
         // TODO siia saab kirjutada koodi testimiseks
     }
 
@@ -14,7 +14,11 @@ public class Lesson2 {
     // sisend: 5
     // vastus: {1, 2, 3, 4, 5}
     public static int[] generateArray(int n) {
-        return new int[0];
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = i + 1;
+        }
+        return a;
     }
 
     // TODO
@@ -24,17 +28,42 @@ public class Lesson2 {
     // Näide2: siend: -3
     // Väljund: -3, -2, -1, 0
     public static int[] decreasingArray(int n) {
-        return new int[0];
+        if (n > 0) {
+            int[] a = new int[n + 1];
+            for (int i = 0; i < a.length; i++) {
+                a[i] = n - i;
+            }
+            return a;
+        } else {
+            int[] a = new int[-n + 1];
+            for (int i = 0; i < a.length; i++) {
+                a[i] = n + i;
+
+            }
+            return a;
+        }
     }
 
     // TODO
     // tagasta massiiv pikkusega n, mille kõigi elementide väärtused on 3
     public static int[] yl3(int n) {
-        return new int[0];
+
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = 3;
+        }
+
+        return a;
     }
 
     // TODO tagasta massiiv milles oleks numbrid 1,2,3,4,5
     public static int[] sampleArray() {
-        return new int[0];
+        int[] a = new int[5];
+        a[0] = 1;
+        a[1] = 2;
+        a[2] = 3;
+        a[3] = 4;
+        a[4] = 5;
+        return a;
     }
 }

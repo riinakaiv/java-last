@@ -2,11 +2,177 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Minu lehe pealkiri on siin</title>
 </head>
 <body>
+<a href="http://www.google.com" target="_blank">Google</a>
+
+<ul>
+    <li>Kohvi</li>
+    <li>Tee</li>
+    <li>Piim</li>
+</ul>
 
 
+<ol>
+    <li>Kohvi</li>
+    <li>Tee</li>
+    <li>Piim</li>
+</ol>
+
+<dl>
+    <dt>Kohvi</dt>
+    <dd>- tume kuum jook</dd>
+    <dt>Piim</dt>
+    <dd>- valge külm jook</dd>
+</dl>
+
+
+<table border="1">
+    <tr>
+        <th>Nimi</th>
+        <th>Aadress</th>
+        <th>Amet</th>
+    </tr>
+
+    <tr>
+        <td>Riina</td>
+        <td>Paju 1</td>
+        <td>Turundaja</td>
+    </tr>
+    <tr>
+        <td>Mari</td>
+        <td>Siili 2-1</td>
+        <td>Raamatupidaja</td>
+    </tr>
+</table>
+
+<input>
+<br>
+<input type="password">
+<br>
+<textarea></textarea>
+<br>
+<input type="checkbox"> <label>HTML</label>
+<br>
+<input type="checkbox"> <label>CSS</label>
+<br>
+<input type="checkbox"> <label>SQL</label>
+<br>
+<input type="radio" name="r1"> HTML
+<br>
+<input type="radio"> <label>CSS</label>
+<br>
+<input type="radio"> <label>SQL</label>
+<br>
+<select>
+    <option></option>
+    <option>Esimene</option>
+    <option>Teine</option>
+</select>
+<br>
+<input type="date">
+<br>
+<input type="email">
+<br>
+<input type="number">
+<br>
+<input type="datetime">
+<br>
+<input type="week">
+<br>
+<input type="month">
+
+
+<table>
+    <tr>
+        <td>Kasutajanimi</td>
+        <td><input></td>
+    </tr>
+    <tr>
+        <td>Parool</td>
+        <td><input type="password"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button>Logi sisse</button>
+        </td>
+    </tr>
+    <!! ---- kommentaar>
+</table>
+
+
+<h1>Lesson 1</h1>
+<input id="a">
+<input id="b">
+<input id="d">
+<button id="myButton">Liida</button>
+<button id="minButton">Min</button>
+<button id="maxButton">Max</button>
+<button id="absButton">Absoluutarv</button>
+<button id="isEvanButton">IsEven</button>
+<button id="min3Button">Min3</button>
+<input id="c" disabled>
+
+<script>
+    let myButton = document.getElementById("myButton");
+    myButton.onclick = function () {
+        let elementA = document.getElementById("a");
+        let elementB = document.getElementById("b");
+        let elementC = document.getElementById("c");
+        elementC.value = Number(elementA.value) + Number(elementB.value);
+    }
+
+    let minButton = document.getElementById("minButton");
+    minButton.onclick = function () {
+        let elementA = document.getElementById("a");
+        let elementB = document.getElementById("b");
+        let elementC = document.getElementById("c");
+        if (Number(elementA.value) < Number(elementB.value)) {
+            elementC.value = Number(elementA.value);
+        } else {
+            elementC.value = Number(elementB.value);
+        }
+    }
+
+    let maxButton = document.getElementById("maxButton");
+    maxButton.onclick = function () {
+        let elementA = document.getElementById("a");
+        let elementB = document.getElementById("b");
+        let elementC = document.getElementById("c");
+        if (Number(elementA.value) > Number(elementB.value)) {
+            elementC.value = Number(elementA.value);
+        } else {
+            elementC.value = Number(elementB.value);
+        }
+    }
+
+    let absButton = document.getElementById("absButton");
+    absButton.onclick = function () {
+        let elementA = document.getElementById("a");
+        let elementC = document.getElementById("c");
+        if (Number(elementA.value) < 0) {
+            elementC.value = -1 * Number(elementA.value);
+        } else {
+            elementC.value = Number(elementA.value);
+        }
+
+    }
+    let isEvanButton = document.getElementById("isEvanButton");
+    isEvanButton.onclick = function () {
+        let elementA = document.getElementById("a");
+        let elementC = document.getElementById("c");
+        if (Number(elementA.value) % 2 == 0) {
+            elementC.value = true;
+        } else {
+            elementC.value = false;
+        }
+    }
+
+
+
+
+</script>
 </body>
 </html>
 

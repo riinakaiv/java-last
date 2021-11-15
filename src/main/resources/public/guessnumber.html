@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess the Number Game</title>
+</head>
+<body>
+<h1>Arva number ära</h1>
+<p>Ma mõtlen numbrile vahemikus ühest sajanid. Arva see ära</p>
+
+
+<input id="guess">
+
+
+<button id="myGuess">Kontrolli mu numbrit</button>
+
+
+<div id="myNumber"></div>
+<script>
+    //http://localhost:8080/game/?nr=50
+    let myGuess = document.getElementById("myGuess");
+    myGuess.onclick = function () {
+        let minNumber = 0;
+        let maxNumber = 100;
+        let guess = document.getElementById("guess").value;
+        if (Number(guess.value) > i) {
+            return "Väiksem";
+        } else {
+            (Number(guess.value) < i)
+            return "Suurem";
+        }
+        let url = "http://localhost:8080/game/?nr=" + guess
+        fetch(url)
+            .then(response => response.text())
+            .then(function (response) {
+                document.getElementById("guess").value = response;
+            })
+
+    }
+    //vaja määrata random number
+    //vaja küsida kasutajalt üks number 1-100ni
+    //kontrollida kas pakutud number on suurem või väiksem random numbrist
+    //vastavalt sellele vastus: suurem, väiksem, õige
+    //õige korral mitme korraga ära arvas
+</script>
+</body>
+

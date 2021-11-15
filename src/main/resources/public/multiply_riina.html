@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Korrutus tabel</h1>
+<input id="x"/>
+<input id="y"/>
+<button id="generateButton">Näita vastust</button>
+<button id="clearTableButton">Tühjenda väljad</button>
+<table border="1" id="multiplyTable">
+    <tr>
+        <td>Korrutustabeli vastus</td>
+    </tr>
+</table>
+<script>
+    let generateButton = document.getElementById("generateButton")
+    generateButton.onclick = function () {
+        let table = document.getElementById("multiplyTable")
+        let x = document.getElementById("x").value;
+        let y = document.getElementById("y").value;
+        for (let j = 1; j <= y; j++) {
+            let newRow = document.createElement("tr")
+            table.appendChild(newRow)
+            for(let i = 1; i <= Number(x); i++){
+                let newColumn = document.createElement('td')
+                newRow.appendChild(newColumn)
+                newColumn.innerText = i * j
+            }
+        }
+    }
+    let emptyListButton = document.getElementById("clearTableButton")
+    emptyListButton.onclick = function () {
+        let table = document.getElementById("multiplyTable")
+        table.innerHTML = ''
+    };
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
