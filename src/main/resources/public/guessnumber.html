@@ -10,6 +10,7 @@
 
 
 <input id="guess">
+<input id="number" disabled>
 
 
 <button id="myGuess">Kontrolli mu numbrit</button>
@@ -20,20 +21,14 @@
     //http://localhost:8080/game/?nr=50
     let myGuess = document.getElementById("myGuess");
     myGuess.onclick = function () {
-        let minNumber = 0;
-        let maxNumber = 100;
+
         let guess = document.getElementById("guess").value;
-        if (Number(guess.value) > i) {
-            return "Väiksem";
-        } else {
-            (Number(guess.value) < i)
-            return "Suurem";
-        }
+
         let url = "http://localhost:8080/game/?nr=" + guess
         fetch(url)
             .then(response => response.text())
             .then(function (response) {
-                document.getElementById("guess").value = response;
+                document.getElementById("number").value = response;
             })
 
     }
